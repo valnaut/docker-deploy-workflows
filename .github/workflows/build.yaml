@@ -78,8 +78,8 @@ jobs:
       fail-fast: false
       matrix:
         leg: ${{ fromJSON(needs.plan.outputs.slot-1) }}
-        platform: [amd64, arm64]
-    runs-on: ${{ matrix.platform == 'arm64' && 'ubuntu-26.04-arm' || 'ubuntu-26.04' }}
+        platform: [amd64]
+    runs-on: ubuntu-26.04
     permissions:
       contents: read
       packages: write
@@ -163,7 +163,7 @@ jobs:
       - name: Download digests
         uses: actions/download-artifact@v8
         with:
-          pattern: digest-${{ matrix.leg.id }}-{amd64,arm64}
+          pattern: digest-${{ matrix.leg.id }}-amd64
           path: digests
           merge-multiple: true
 
@@ -185,8 +185,8 @@ jobs:
       fail-fast: false
       matrix:
         leg: ${{ fromJSON(needs.plan.outputs.slot-2) }}
-        platform: [amd64, arm64]
-    runs-on: ${{ matrix.platform == 'arm64' && 'ubuntu-26.04-arm' || 'ubuntu-26.04' }}
+        platform: [amd64]
+    runs-on: ubuntu-26.04
     permissions:
       contents: read
       packages: write
@@ -223,8 +223,8 @@ jobs:
       fail-fast: false
       matrix:
         leg: ${{ fromJSON(needs.plan.outputs.slot-3) }}
-        platform: [amd64, arm64]
-    runs-on: ${{ matrix.platform == 'arm64' && 'ubuntu-26.04-arm' || 'ubuntu-26.04' }}
+        platform: [amd64]
+    runs-on: ubuntu-26.04
     permissions:
       contents: read
       packages: write

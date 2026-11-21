@@ -18,7 +18,7 @@ import msgspec
 from deploy_workflows import config, github
 from deploy_workflows.plan import BadgeFile, Leg, Plan, Planner, Settings
 
-ARCHITECTURES = ("amd64", "arm64")
+ARCHITECTURES = ("amd64",)
 
 
 def env_flag(name: str) -> bool:
